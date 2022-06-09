@@ -14,7 +14,7 @@ const userLogin = async (req, res) => {
     throw new Unauthorized("Email or password is wrong");
   }
 
-  const confirmedPassword = bcrypt.compareSync(password, user.password);
+  const confirmedPassword = await bcrypt.compare(password, user.password);
   if (!confirmedPassword) {
     throw new Unauthorized("Email or password is wrong");
   }
