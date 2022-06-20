@@ -38,11 +38,10 @@ describe("test login User", () => {
     const res = {
       status: jest.fn().mockReturnThis(),
       json: jest.fn((data) => {
-        const fff = {
+        return {
           status: 200,
           body: { ...data },
         };
-        return fff;
       }),
     };
 
