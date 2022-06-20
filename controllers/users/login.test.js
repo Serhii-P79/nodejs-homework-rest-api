@@ -15,13 +15,12 @@ describe("test login User", () => {
     // ! - в response - ответ сервера
 
     const { status, _body: body } = response; //!  body - тело ответа, status - статус ответа
-
-    expect(status).toBe(200);
-    expect(Object.keys(body).includes("token")).toBe(true);
-    expect(body.user !== undefined).toBe(true);
-    expect(Object.keys(body.user).includes("email")).toBe(true);
-    expect(Object.keys(body.user).includes("subscription")).toBe(true);
-    expect(typeof body.user.email).toBe("string");
-    expect(typeof body.user.subscription).toBe("string");
+    expect(status).toBe(200); //* -  проверка статуса
+    expect(Object.keys(body).includes("token")).toBe(true); //* - проверка ключа 'token'
+    expect(body.user !== undefined).toBe(true); //* проверка наличия объекта user
+    expect(Object.keys(body.user).includes("email")).toBe(true); //* проверка наличия у объекта user поля email
+    expect(Object.keys(body.user).includes("subscription")).toBe(true); //* проверка наличия у объекта user поля subscription
+    expect(typeof body.user.email).toBe("string"); //* проверка типа поля email
+    expect(typeof body.user.subscription).toBe("string"); //* проверка типа поля subscription
   });
 });
