@@ -1,4 +1,4 @@
-const { describe, expect, test } = require("@jest/globals");
+// const { describe, expect, test } = require("@jest/globals");
 // const jest = require("@jest/globals");
 
 const userLogin = require("./login");
@@ -37,6 +37,7 @@ describe("test login User", () => {
 
     const res = {
       status: jest.fn().mockReturnThis(),
+
       json: jest.fn((data) => {
         return {
           status: 200,
