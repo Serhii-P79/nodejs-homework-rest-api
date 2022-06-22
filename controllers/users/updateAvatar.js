@@ -1,6 +1,6 @@
 const { User } = require("../../models");
 const { NotFound } = require("http-errors");
-const Jimp = require("Jimp");
+const Jimp = require("jimp");
 const path = require("path");
 const rootDir = require("../../rootDir");
 const { unlink, readdir } = require("fs/promises");
