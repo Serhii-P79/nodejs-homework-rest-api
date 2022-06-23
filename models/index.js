@@ -7,6 +7,7 @@ const joiSchema = {
   contactUpd: varContact.joiSchema.contactUpd,
   userAdd: varUser.joiSchema.userAdd,
   userLogin: varUser.joiSchema.userLogin,
+  userResend: varUser.joiSchema.userResend,
 };
 
 module.exports = {

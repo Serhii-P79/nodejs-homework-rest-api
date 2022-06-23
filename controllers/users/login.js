@@ -3,7 +3,7 @@ const { Unauthorized } = require("http-errors");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
-const { SECRET_KEY } = process.env;
+const { JWT_SECRET_KEY } = process.env;
 
 const userLogin = async (req, res) => {
   const { email: emailUser, password } = req.body;
@@ -21,8 +21,9 @@ const userLogin = async (req, res) => {
   const payload = {
     id: user._id,
   };
-  const token = jwt.sign(payload, SECRET_KEY, { expiresIn: 60 * 60 * 24 });
+  const token = jwt.sign(payload, JWT_SECRET_KEY, { expiresIn: 60 * 60 * 24 });
   const updUser = await User.findByIdAndUpdate(user._id, { token }, { new: true });
+
   return res.status(200).json({
     token: token,
     user: {

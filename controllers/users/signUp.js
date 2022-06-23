@@ -3,6 +3,8 @@ const { Conflict } = require("http-errors");
 const bcrypt = require("bcryptjs");
 const gravatar = require("gravatar");
 
+const { sendVerification } = require("../../services");
+
 const userSignUp = async (req, res, next) => {
   const { email: emailUser, password, subscription: subscriptionUser } = req.body;
   const user = await User.findOne({ email: emailUser });
@@ -22,6 +24,8 @@ const userSignUp = async (req, res, next) => {
       avatarURL: userAvatar,
     });
     const { email, subscription } = result;
+
+    sendVerification({ user: result });
 
     res.status(201).json({
       user: { email, subscription },

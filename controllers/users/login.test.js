@@ -2,7 +2,7 @@
 //! пользователь должен быть предварительно зарегистрирован с паролем:asdfgh и почтой:asdfgh@com.ua
 
 const request = require("supertest");
-const { describe, expect, test } = require("@jest/globals");
+// const { describe, expect, test } = require("@jest/globals");
 const { PORT = 3000 } = process.env;
 
 describe("test login User", () => {
